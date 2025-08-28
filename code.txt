@@ -1,0 +1,943 @@
+http://www.tutorialsteacher.com/csharp/csharp-useful-resources
+http://www.entityframeworktutorial.net/EntityFramework6/code-first-insert-update-delete-stored-procedure-mapping.aspx
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/advanced/dependency-injection
+https://code.msdn.microsoft.com/Dependency-Injection-in-11d54863
+https://www.entityframeworktutorial.net/EntityFramework-Architecture.aspx
+
+.net core
+https://www.tutorialspoint.com/asp.net_core/asp.net_core_routing.htm
+https://www.webtrainingroom.com/aspnetcore/validation
+https://www.tutorialsteacher.com/core/code-sharing-between-dotnet-frameworks
+
+Dapper vs EF
+https://www.c-sharpcorner.com/article/dapper-vs-entity-framework-core/#:~:text=Dapper%20provides%20more%20flexibility%20than,work%20with%20in%20larger%20projects
+https://www.learndapper.com/dapper-vs-entity-framework
+Dapper: Give you full control over the SQL generated / uses stored procedures for everything.
+Entity Framework: Allow you to code with LINQ and forget everything about SQL.
+Dapper is generally faster than EF Core because it uses raw SQL queries and has less overhead
+Dapper is simpler than EF Core because it uses raw SQL queries and has fewer features. However, EF Core provides a higher-level abstraction over the database and has more features.
+
+-Service Bus
+https://www.youtube.com/watch?v=HrK1UlPBkEY  (AMQP PROTOCOLE)
+Topic /queue , DEAD LETTERS , filter , message session scheduling
+https://ironpdf.com/blog/net-help/azure-messaging-servicebus-example-csharp/
+https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues?tabs=passwordless
+
+
+Docker, Kubernetes, Application insights, SonarCloud, Hangfire 
+
+Terraform
+
+
+Complexité algorithmique:
+https://wiki.bananeatomic.fr/wiki/Complexit%C3%A9_algorithmique
+
+Choix entre entity framework et ado.net?
+Performance: ADO.NET is much faster compared to the Entity Framework.
+Flexibility: In the case of executing SQL Queries and stored procedures, ADO.NET always provides us much more flexibility and control compared to the Entity Framework. 
+Speed of Development: It always take some more time and effort to develop the data access layer compared to the Entity Framework.
+Code Maintainability: Code can be maintained in a better way in Entity Framework.
+
+identity server
+OAuth2
+
+APIGateway
+Design pattern
+
+REST (representational state transfer) est un style d'architecture logicielle définissant un ensemble de contraintes à utiliser pour créer des services web. Les services web conformes au style d'architecture REST, aussi appelés services web RESTful, établissent une interopérabilité entre les ordinateurs sur Internet. Les services web REST permettent aux systèmes effectuant des requêtes de manipuler des ressources web via leurs représentations textuelles à travers un ensemble d'opérations uniformes et prédéfinies sans état
+
+
+-OAuth2 is a library for user authentication using third-party services (OAuth/OAuth2 protocol) such as Google, Facebook and so on.
+OAuth2 permet de mettre en place une délégation d'autorisation pour accorder à une application tierce (client application) avec un accès limité sur une ressource (ressource server), avec le consentement du propriétaire de celle-ci (ressource owner)
+OAuth dans sa version 2.0 repose sur des échanges entre quatre acteurs. Le resource owner (utilisateur) est capable d’accorder l’accès à la ressource pour une application client. L’authorization server (serveur d’autorisation) occupe le rôle central au sein du protocole, il est chargé d’authentifier le resource owner et de délivrer son autorisation sous la forme d’un jeton appelé access token. Le resource server quant à lui correspond au serveur où sont stockées les ressources protégées2.
+
+OAuth only authorizes devices, APIs, servers with access tokens
+
+OpenID Connect or OIDC is an identity protocol which task is to authorize and authenticate  of OAuth 2.0. The user can use an existing account and use multiple websites without the need for creating passwords.
+
+OpenID Connect est une simple couche d'identification basée sur le protocole OAuth 2.0, qui autorise les clients à vérifier l'identité d'un utilisateur final en se basant sur l'authentification fournie par un serveur d'autorisation, en suivant le processus d'obtention d'une simple information du profil de l'utilisateur final.
+
+OpenID is about authentication (ie. proving who you are), OAuth is about authorisation (ie. to grant access to functionality/data/etc.. without having to deal with the original authentication).
+
+Token Introspection Endpoint:
+https://identitymodel.readthedocs.io/en/latest/client/introspection.html
+
+
+-API gateways are API proxies that are put between the API Provider and the API Consumer.
+The gateway acts as a protector, enforcing security and ensuring scalability and high availability. To put it simply, the API gateway takes all API requests from a client, determines which services are needed, and combines them into a unified, seamless experience for the user.
+
+
+Redis cache : cest pour la gestion du cache distribué
+Une des principales caractéristiques de Redis est de conserver l'intégralité des données en RAM. Cela permet d'obtenir d'excellentes performances en évitant les accès disques, particulièrement coûteux sur ce plan.
+
+JSON Web Token (JWT) est un standard qui permet l'échange sécurisé de jetons (tokens) entre plusieurs parties. Cette sécurité de l’échange se traduit par la vérification de l'intégrité et de l'authenticité des données. Elle s’effectue par l'algorithme HMAC ou RSA.
+Un token API est une combinaison vous permettant d'associer votre login et votre mot de passe de façon sécurisée lors de vos intégrations. 
+En effet, les JWT constituent une alternative d’authentification basée sur des jetons (en anglais, Token-Based Authentication) au lieu de l’authentification basée sur les sessions.
+On dit également que les JWT sont un moyen d'authentification stateless.
+La génération d’un JWT peut se résumer en 3 étapes assez élémentaires  :
+1-L’utilisateur se connecte depuis votre client qui va envoyer une requête HTTP au serveur (via l’API du serveur) avec, par exemple, un couple email/mot de passe
+2-Si les informations de connexion sont correctes, le serveur génère un jeton JWT
+3-Le serveur envoie le JWT généré au client, qui le conservera de son côté pour pouvoir le communiquer au serveur à chaque nouvelle requête
+
+Un JWT se décompose en 3 parties :
+1-Le Header : il contient les informations d’en-tête de notre jeton  alg (par exemple SHA256) , type JWT
+2-Payload : ce sont les données principales de notre jeton
+3-La Signature : cette dernière partie permettra au serveur d’assurer la conformité et validité d’un jeton
+
+ Kubernetes, orchestrez un cluster de machines virtuelles et planifiez l’exécution des conteneurs sur ces machines virtuelles en fonction de leurs ressources de calcul et des besoins de chaque conteneur. Les conteneurs sont regroupés en pods, unités d’opérations de base de Kubernetes, qui se mettent à l’échelle selon l’état souhaité.
+
+kubectl permet d executer les commandes sur le cluster AKS
+ 
+ .NET 6.0 (c# 10 vs 2022)
+You use the record keyword to define a reference type that provides built-in functionality for encapsulating data.
+public record Person
+{
+    public string FirstName { get; init; } = default!;
+    public string LastName { get; init; } = default!;
+};
+
+
+ 
+
+OWIN (Open Web Interface for .NET) is a standard for an interface between .NET Web applications and Web servers.
+OpenId connect
+Service Bus
+scale out in  manu automatique
+Le scale-out et le scale-in manuels vous permettent de répondre aux hausses et aux baisses de trafic attendues.
+Le scale-up sert a passer à un niveau tarifaire supérieur. scale-down c est l'inverse
+Le scale-out vous permet d’exécuter davantage d’instances d’une application web, mais les ressources disponibles pour chaque instance sont déterminées par le niveau tarifaire utilisé
+ 
+Angular
+kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10	 
+.Net6
+
+PI
+http://toreaurstad.blogspot.com/2015/07/calculating-pi-in-c-using-monte-carlo.html
+https://www.centerspace.net/examples/nmath/csharp/core/monte-carlo-random-number-generator-example.php
+
+
+ NET Core est une plateforme de développement généraliste open source qui est tenue à jour par Microsoft et la communauté
+.NET sur GitHub. Cette multiplateforme prend en charge Windows, macOS et Linux. Elle permet de générer des applications
+ destinées à des appareils, au cloud et à l’Internet des objets.
+ 
+ ASP.NET Core is no longer based on System.Web.dll. It is based on a set of granular and well factored NuGet packages.
+ 
+.NET Core a les caractéristiques suivantes :
+Multiplateforme : s’exécute sur les systèmes d’exploitation Windows, macOS et Linux.
+Cohérent entre architectures : exécute votre code avec le même comportement sur plusieurs architectures, notamment x64, x86 et ARM.
+Outils de ligne de commande : intègre des outils de ligne de commande faciles qui peuvent être utilisés pour le développement
+ local et dans des scénarios d’intégration continue.
+Souplesse de déploiement : peut être inclus dans votre application ou installé côte à côte à l’échelle d’un utilisateur ou de l’ordinateur.
+ Peut être utilisé avec des conteneurs Docker.
+Compatibilité : .NET Core est compatible avec le .NET Framework, Xamarin et Mono via .NET Standard.
+Open Source : la plateforme .NET Core est open source et utilise des licences MIT et Apache 2. .NET Core est un projet .NET Foundation.
+Pris en charge par Microsoft : Le .NET Core est pris en charge par Microsoft, via le Support .NET Core.
+
+Comparaison avec le .NET Framework:
+Les principales différences entre .NET Core et le .NET Framework sont les suivantes :
+Plateformes : le .NET Framework prend en charge Windows et Windows Server, tandis que .NET Core prend aussi en charge macOS et Linux.
+Open Source : .NET Core est open source, alors que seul un sous-ensemble en lecture seule du .NET Framework l’est.
+
+
+TDD Test-Driven Development (TDD), ou Développements Pilotés par les Tests en français, est une méthode de développement de logiciel, qui consiste à concevoir un logiciel par petits pas, de façon itérative et incrémentale, en écrivant chaque test avant d'écrire le code source et en remaniant le code continuellement.
+Tu n’écriras pas de code tant que tu n’auras pas écrit un test qui échoue
+Tu n’écriras pas plus de tests que nécessaire pour en faire échouer un. Et les échecs de compilation sont des échecs comme les autres
+Tu n’écriras pas plus de code qu’il n’en faut pour faire passer le test qui a dernièrement échouée
+5 etapes pour faire TDD
+1-Lisez, comprenez et traitez la demande de fonctionnalité.
+2-Traduisez l’exigence en écrivant un test unitaire. Si vous le lancez, le test unitaire s’exécutera et échouera car aucun code n’est encore implémenté.
+3-Rédigez et implémentez le code qui répond à l’exigence. Exécutez tous les tests et ils devraient réussir, sinon répétez cette étape.
+4-Nettoyez votre code en le refactorisant.
+5-Rincez, faire mousser et répéter.
+
+BDD:Behavior Driven Development (BDD) 
+BDD: Le BDD est une approche de test dérivée de la méthodologie Test-Driven Development (TDD). Dans BDD, les tests décrivent le comportement du système. Dans la plupart des cas, l’ approche Given-When-Then est utilisée pour écrire des cas de test.
+BDD: Scénario : Les collaborateurs n'ayant pas les droits 
+Étant donné qu'un utilisateur a un compte ouidou
+Et qu'il se connecte avec ses identifiants valides
+Et qu'il n'a pas un rôle admin
+Alors il doit juste pouvoir consulter.
+
+Behavior Driven Development (BDD) is a practice in which developers and QA testers write automated user acceptance tests (UAT) which satisfy acceptance criteria in user stories. This helps developers write code that is focused on satisfying business criteria which define the purpose of the software they are writing. 
+SpecFlow  is a tool to create BDD tests
+
+DDD: Domain-Driven Design » est appelé en français « Conception pilotée par le domaine ».:La conception de notre application toute entière est définie sur le design du domaine
+c’est une philosophie de conception, on se base sur le métier pour assembler la solution que l’on apporte au business, autrement dit notre code.
+
+poo: heritage polymorphisme encapsulation
+L'encapsulation vise à regrouper les données et les traitements associés. classe avec properties et methodes associés
+
+Put Updates existing record. , remplace les données par celle qui sont envoyées dans la requête
+Post Inserts new record.
+Patch : permet la modification partielle d'une ressource en fusionnant les données envoyées avec les données déjà présentes ou grâce à l'utilisation d'opération de modification.
+Delete Deletes record.
+
+public IHttpActionResult Delete(int id)
+    {
+using (var ctx = new SchoolDBEntities())
+        {
+            var student = ctx.Students
+                .Where(s => s.StudentID == id)
+                .FirstOrDefault();
+
+            ctx.Entry(student).State = System.Data.Entity.EntityState.Deleted;
+            ctx.SaveChanges();
+        }
+
+        return Ok();
+   }
+		
+https://www.tutorialsteacher.com/webapi/consume-web-api-get-method-in-aspnet-mvc
+
+     using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:60464/api/");
+                //HTTP GET
+                var responseTask = client.GetAsync("student");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<Student[]>();
+                    readTask.Wait();
+
+                    var students = readTask.Result;
+					******
+					
+Quelle est la différence entre IQueryable et IEnumerable?:
+-IQueryable – Le filtre est appliqué au niveau/côté serveur et ne récupère que les résultats requis de la source. Le temps de traitement est donc moindre. 
+-IEnumerable – Il récupère d'abord toutes les données de la source, puis applique le filtre au niveau/côté client
+
+The first important point to remember is IQueryable interface inherits from IEnumerable, so whatever IEnumerable can do, IQueryable can also do.
+Querying data from a database, IEnumerable execute a select query on the server side, load data in-memory on a client-side and then filter data.
+Querying data from a database, IQueryable execute the select query on the server side with all filters.
+IQueryable queries out-of-memory data stores, while IEnumerable queries in-memory data. 
+
+					
+web api Return data automatically formatted based on Accept-Type header attribute. Default to json or xml.Derives from System.Web.Http.ApiController class
+You have seen that by default, ASP.NET Web API gets the value of a primitive parameter from the query string and a complex type parameter from the request body. But, what if we want to change this default behavior?
+Use [FromUri] attribute to force Web API to get the value of complex type from the query string and [FromBody] attribute to get the value of primitive type from the request body, opposite to the default rules.
+
+The Web API action method can have following return types:
+Void
+Primitive type or Complex type
+HttpResponseMessage
+IHttpActionResult
+
+200 OK, 404 notfound , 401 Unauthorized , 500 InternalServerError, 400 bad request, 504 Gatewaytimeout
+
+Le modificateur override est nécessaire pour étendre ou modifier l’implémentation abstraite ou virtuelle d’une méthode,
+une methode abstraite ne contient aucun code 
+expression linq  .invoke
+yeald  execution different
+linq   .compile
+
+SortedList stores the key-value pairs in ascending order of the key. Key must be unique and cannot be null whereas value can be null or duplicate.
+Add key-value pairs in SortedList
+SortedList sortedList1 = new SortedList();
+sortedList1.Add(3, "Three");
+sortedList1.Add(4, "Four");
+sortedList1.Add(1, "One");
+sortedList1.Add(5, "Five");
+sortedList1.Add(2, "Two");
+
+Hashtable stores key-value pairs of any datatype where the Key must be unique.
+Hashtable ht = new Hashtable();
+ht.Add(1, "One");
+ht.Add(2, "Two");
+ht.Add(3, "Three");
+ht.Add(4, "Four");
+ht.Add(5, null);
+ht.Add("Fv", "Five");
+
+Dictionary
+IDictionary<int, string> numberNames = new Dictionary<int, string>();
+numberNames.Add(1,"One"); //adding a key/value using the Add() method
+numberNames.Add(2,"Two");
+numberNames.Add(3,"Three");
+foreach(KeyValuePair<int, string> kvp in numberNames)
+    Console.WriteLine("Key: {0}, Value: {1}", kvp.Key, kvp.Value);
+
+stack , queue;sortedList, arrayList	
+complexite algorithmique
+https://wiki.bananeatomic.fr/wiki/Complexit%C3%A9_algorithmique
+
+Default access specifier for a class type is internal.
+Default access for the members is private.
+
+Polymorphism can be static or dynamic. In static polymorphism, the response to a function is determined at the compile time. In dynamic polymorphism, it is decided at run-time.
+Dynamic polymorphism is implemented by abstract classes and virtual functions.
+
+C# provides two techniques to implement static polymorphism. They are −Function overloading/ Operator overloading
+
+Le terme "exécution différée" signifie que l’évaluation d’une expression est retardée jusqu’à ce que sa valeur réalisée soit réellement nécessaire. 
+public static IEnumerable<int> Power(int number, int exponent)
+        {
+            int result = 1;
+           // Console.WriteLine("tttgtgt");
+            for (int i = 0; i < exponent; i++)
+            {
+                result = result * number;
+                yield return result;
+            }
+        }
+		
+covariance fait référence aux Paramètres de sortie utilisés dans les génériques
+contravariance fait référence aux Paramètres d'entrée utilisés dans les génériques
+
+public delegate void Print(int value);
+ public static void PrintNumber(int num)
+    {
+        Console.WriteLine("Number: {0,-12:N0}",num);
+    }	
+
+Print printDel = PrintNumber;
+printDel.Invoke(10000);
+//or
+printDel (10000);
+
+Example: Event Declaration
+public delegate void someEvent();
+public event someEvent someEvent;
+ Subscribe to events using "+=" operator. Unsubscribe it using "-=" operator.
+
+Advantages of Generics : Increases the reusability of the code.
+where T : class      Type must be reference type.
+where T : struct	     Type must be value type. 
+class MyGenericClass<T, U> where T: class where U:struct
+Dictionary<TKey,TValue>
+SortedList<int,string> sortedList1 = new SortedList<int,string>();  SortedList stores the key-value pairs in ascending order of the key. The key must be unique and cannot be null
+Dictionary<int, string> dict = new Dictionary<int, string>();
+dict.Add(1,"One");
+or dict.Add(new KeyValuePair<int, string>(1, "One"));
+
+Static classes cannot be instantiated using the new keyword
+Static items can only access other static items.
+ For example, a static class can only contain static members, e.g., variables, methods, etc. 
+ A static method can only contain static variables and can only access other static items.
+Static items share the resources between multiple users.
+Static cannot be used with indexers, destructors or types other than classes.
+A static constructor in a non-static class runs only once when the class is instantiated for the first time.
+A static constructor in a static class runs only once when any of its static members accessed for the first time.
+Static members are allocated in high frequency heap area of the memory.
+
+var can only be declared and initialized in a single statement. Following is not valid: 
+var i; i = 10;
+
+Example: Func
+ static int Sum(int x, int y)
+    {
+        return x + y;
+    }
+  Func<int,int, int> add = Sum;
+        int result = add(10, 10);
+exempel 2
+Func<int, int, int>  Sum  = (x, y) => x + y;
+
+Action delegate is same as func delegate except that it does not return anything.
+static void ConsolePrint(int i)
+{
+    Console.WriteLine(i);
+}
+ Action<int> printActionDel = ConsolePrint;
+    printActionDel(10);
+
+Predicate delegate
+static bool IsUpperCase(string str)
+{
+    return str.Equals(str.ToUpper());
+}
+Predicate<string> isUpper = IsUpperCase;
+    bool result = isUpper("hello world!!");	
+
+Predicate<string> isUpper = s => s.Equals(s.ToUpper());
+bool result = isUpper("hello world!!");
+	
+Extension methods are additional custom methods which were originally not included with the class.
+Extension methods can be added to custom, .NET Framework or third party classes, structs or interfaces.
+ public static class IntExtensions
+     {
+        public static bool IsGreaterThan(this int i, int value)
+        {
+            return i > value;
+        }
+    }
+test
+ int i = 10;
+ bool result = i.IsGreaterThan(100);
+		
+Use the '??' operator to assign a nullable type to a non-nullable type.
+int? i = null;            
+int j = i ?? 0;
+
+An anonymous type will always be local to the method where it is defined. Usually, you cannot pass an anonymus type to another method; however, 
+you can pass it to a method that accepts a parameter of dynamic type. 
+
+A dynamic type escapes type checking at compile time; instead, it resolves type at run time
+A dynamic type changes its type at runtime based on the value of the expression:
+dynamic dynamic Variable = 100;
+dynamic Variable = "Hello World!!";
+
+public class Base: IDisposable
+{
+    private bool disposed = false;
+
+    //Implement IDisposable.
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!disposed)
+        {
+            if (disposing)
+            {
+                // Free other state (managed objects).
+            }
+            // Free your own state (unmanaged objects).
+            // Set large fields to null.
+            disposed = true;
+        }
+    }
+}
+
+Un champ statique d’une classe :
+• existe indépendamment de tout objet de la classe et existe même si aucun objet de la classe n’a encore été créé ;
+• est partagé par tous les objets de la classe ;
+• est accessible par c.ch où c désigne le nom de la classe et ch le nom du champ statique
+
+Copie d objet
+class myClass : ICloneable
+{
+    public String test;
+    public object Clone()
+    {
+        return this.MemberwiseClone();
+    }
+}
+myClass a = new myClass();
+myClass b = (myClass)a.Clone();
+
+Comparer 2 objets
+redéﬁnir la méthode Equals de la classe Object, redéﬁnir les opérateurs == et !=, redéﬁnir la fonction GetHashCode 	
+
+protected internal est un modificateur d’accès de membre. Un membre interne protégé est accessible depuis l’assembly actif ou depuis des types dérivés de la classe conteneur.
+
+Le qualiﬁcatif sealed peut être appliqué à une classe pour empêcher toute dérivation à partir de cette classe
+Une classe abstraite doit être qualiﬁée de abstract et ne peut être instanciée.
+abstract class ShapesClass
+{
+    abstract public int Area();
+}
+class Square : ShapesClass
+{
+    int side = 0;
+
+    public Square(int n)
+    {
+        side = n;
+    }
+    // Area method is required to avoid
+    // a compile-time error.
+    public override int Area()
+    {
+        return side * side;
+    }
+}
+
+dotnet new console  : creer une appli console
+dotnet new angular  : ASP.NET Core avec Angular
+dotnet new api      : API web ASP.NET Core
+dotnet new webapp   Application web ASP.NET Core
+Le modificateur override est nécessaire pour étendre ou modifier l’implémentation abstraite ou virtuelle d’une méthode,
+
+Virtual :Vous ne pouvez pas utiliser le modificateur virtual avec les modificateurs static, abstract, private ou override. L’exemple suivant illustre une propriété virtuelle :
+ class MyBaseClass
+   {
+       // virtual auto-implemented property. Overrides can only
+       // provide specialized behavior if they implement get and set accessors.
+       public virtual string Name { get; set; }
+
+}
+class MyDerivedClass : MyBaseClass
+   {
+       private string name;
+
+      // Override auto-implemented property with ordinary property
+      // to provide specialized accessor behavior.
+       public override string Name
+       {
+           get
+           {
+               return name;
+           }
+           set
+           {
+               if (value != String.Empty)
+               {
+                   name = value;
+               }
+               else
+               {
+                   name = "Unknown";
+               }
+           }
+       }
+
+   }
+ 
+Volatile : Le mot clé volatile indique qu’un champ peut être modifié par plusieurs threads qui s’exécutent simultanément:
+class VolatileTest
+{
+    public volatile int sharedStorage;
+
+    public void Test(int _i)
+    {
+        sharedStorage = _i;
+    }
+}
+
+private volatile int internalValue = 0; //assure le maximum d'optimisation pour l'accès concurrent lecture/écriture à
+un champ privé ?
+
+19. Un finaliseur est automatiquement appelé :si le constructeur jette une exception si une méthode jette une exception ,par le garbage collector
+
+unsafe :Le mot clé unsafe désigne un contexte non sécurisé, qui est requis pour toute opération impliquant des pointeurs. 
+
+Le modificateur extern permet de déclarer une méthode qui est implémentée en externe. Le modificateur extern est souvent utilisé avec l'attribut DllImport
+
+ [DllImport("User32.dll", CharSet=CharSet.Unicode)] 
+    public static extern int MessageBox(IntPtr h, string m, string c, int type);
+
+    static int Main()
+    {
+        string myString;
+        Console.Write("Enter your message: ");
+        myString = Console.ReadLine();
+        return MessageBox((IntPtr)0, myString, "My Message Box", 0);
+    }
+Utilisez le modificateur async pour spécifier qu’une méthode, une expression lambda ou une méthode anonyme sont asynchrones.
+static async Task<Toast> MakeToastWithButterAndJamAsync(int number)
+{
+
+    var toast = await ToastBreadAsync(number);
+    ApplyButter(toast);
+    ApplyJam(toast);
+
+    return toast;
+}
+
+-LOCK L’instruction lock obtient le verrou d’exclusion mutuelle d’un objet donné, exécute un bloc d’instructions, puis libère le verrou.
+
+
+
+https://www.w3resource.com/csharp-exercises/string/csharp-string-exercise-57.php
+
+/*
+C# 6.0    .NET Framework 4.6  VS 2013/2015
+C# 7.0 ,  .NET Core 2.0  	  VS 2017
+C# 8.0 ,  .NET Core 3.0       VS 2019
+C# 9.0 ,  .NET 5.0            VS 2019
+C# 10.0   .NET 6.0            VS 2022
+
+difference du 8 par rapport a l avant
+Switch expressions
+Using declarations     using var file = new System.IO.StreamWriter("WriteLines2.txt");//cette variable a disposer apres le block
+Null-coalescing assignment cest operator ??=
+You can use the ??= operator to assign the value of its right-hand operand to its left-hand operand only if the left-hand operand evaluates to null.
+List<int> numbers = null;
+int? i = null;
+
+numbers ??= new List<int>();
+numbers.Add(i ??= 17);
+numbers.Add(i ??= 20);
+
+*/
+difference entre IEnumerable  et List
+LINQ expressions return an enumeration, and by default the expression executes when you iterate through it using a foreach, but you can force it to iterate sooner using .ToList() or .ToArray().
+When you use IEnumerable, you give the compiler a chance to defer work until later,(execution diferree) alors List Execution imediate
+
+Differences Between Task And Thread:
+-The Thread class is used for creating and manipulating a thread in Windows. A Task represents some asynchronous operation and is part of the Task Parallel Library, a set of APIs for running tasks asynchronously and in parallel.
+The task can return a result. There is no direct mechanism to return the result from a thread.
+We can chain tasks together to execute one after the other.
+Asynchronous implementation is easy in task, using’ async’ and ‘await’ keywords.
+
+Le code asynchrone utilise les objets Task<T> et Task, qui sont des constructions servant à modéliser le travail effectué en arrière-plan.
+Le mot clé async définit une méthode comme asynchrone, ce qui vous permet d’utiliser le mot clé await dans le corps de la méthode.
+Quand le mot clé await est utilisé, il suspend la méthode d’appel et cède le contrôle à son appelant jusqu’à ce que la tâche awaited soit terminée.
+Le mot clé await peut uniquement être utilisé dans une méthode asynchrone.
+https://learn.microsoft.com/fr-fr/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model
+
+optimisation sql server:
+analyser un plan d’exécution pour une requête
+effectuer des tâches de supervision avec SQL Server Profiler
+Voir le journal des erreurs SQL Server dans SSMS
+
+
+
+desing pattern Facade:
+https://www.dofactory.com/net/facade-design-pattern
+Design pattern Observer:
+https://www.dofactory.com/net/observer-design-pattern
+
+Polymorphism is often referred to as the third pillar of object-oriented programming, after encapsulation and inheritance.
+Le polymorphisme est un mécanisme via lequel un objet peut prendre plus d'une forme. Par exemple, si vous avez une classe de base nommée Humain,
+ un objet de type Humain peut être utilisé pour contenir un objet de n'importe laquelle de ses classes dérivées. Quand vous appelez une méthode 
+ à partir de votre objet, le système déterminera automatiquement le type de l'objet afin d'appeler la fonction appropriée.
+
+Propriétés ACID décrit le rôle joué par les transactions dans des applications 
+Atomicité , Cohérence, Isolation, Durabilité
+https://docs.microsoft.com/fr-fr/previous-versions/dotnet/netframework-1.1/aa719484(v=vs.71)
+
+SOLID est l'acronyme de cinq principes de base (Single Responsibility Principle, Open/Closed Principle, Liskov Substitution Principle, 
+Interface Segregation Principle et Dependency Inversion Principle) que l'on peut appliquer au développement objet.
+-S: (Single responsibility principle) S:une classe, une fonction ou une méthode doit avoir une et une seule responsabilité
+-O: Ouvert/fermé (Open/closed principle)
+une entité applicative (class, fonction, module ...) doit être ouverte à l'extension, mais fermée à la modification
+une classe logicielle était un package de données, qui devait, une fois implémentée, ne plus être modifiée que pour corriger une erreur. Toute nouvelle fonctionnalité ne devrait, pouvoir être rajoutée qu'en ajoutant une nouvelle classe, laquelle pouvait éventuellement hériter de la classe d'origine.
+
+-L: Substitution de Liskov (Liskov substitution principle)
+une instance de type T doit pouvoir être remplacée par une instance de type G, tel que G sous-type de T, sans que cela ne modifie la cohérence du programme
+Les sous-types doivent être substituables à leur type de base.
+
+-I: Ségrégation des interfaces (Interface segregation principle)
+préférer plusieurs interfaces spécifiques pour chaque client plutôt qu'une seule interface générale
+Les clients d'une entité logicielle ne doivent pas avoir à dépendre d'une interface qu'ils n'utilisent pas.
+
+
+-D: Inversion des dépendances (Dependency inversion principle)
+il faut dépendre des abstractions, pas des implémentations
+Les modules de haut niveau ne doivent pas dépendre des modules de bas niveau. Les deux doivent dépendre d'abstractions.
+Les abstractions ne doivent pas dépendre des détails. Les détails doivent dépendre des abstractions.
+
+
+La réflexion est l'art de découvrir des types et d'invoquer leurs membres à l'exécution.
+Un autre exemple : la complétion de code. N'est-ce pas magnifique que, lorsque l'on tape un point après un identificateur d'objet en C#
+ dans un environnement de développement comme Visual Studio, la liste de ses membres s'affiche?
+
+
+A thread is the smallest unit of execution within a process. Multithreading is the ability to have multiple threads in memory
+ at a given time and switch amongst them so as to provide a pseudo parallelism
+ 
+Thread myThread;
+myThread = new Thread(new ThreadStart(ThreadLoop));
+myThread.Start();
+// Attente de 500 ms
+Thread.Sleep(500);
+t.Suspend(); //Suspends the newly created thread
+t.Resume(); //Resumes the suspended thread
+thread1.Priority = ThreadPriority.Highest
+
+Design pattern
+-Singleton:	A class of which only a single instance can exist
+class Singleton
+  {
+    private static Singleton _instance;
+ 
+    // Constructor is 'protected'
+
+    protected Singleton()
+    {
+    }
+ 
+    public static Singleton Instance()
+    {
+      // Uses lazy initialization.
+
+      // Note: this is not thread safe.
+
+      if (_instance == null)
+      {
+        _instance = new Singleton();
+      }
+ 
+      return _instance;
+    }
+ }
+-Observer	Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+Composite	:A tree structure of simple and composite objects, Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
+
+
+
+mutable types are those whose data members can be changed after the instance is created but Immutable types are those whose data members can not be changed after the instance is created.
+When we change the value of mutable objects, value is changed in same memory. But in immutable type, the new memory is created and the modified value is stored in new memory.
+Strings are immutable, which means we are creating new memory everytime instead of working on existing memory.
+StringBuilder is a mutable type, that means we are using the same memory location and keep on appending/modifying the stuff to one instance. 
+It will not create any further instances hence it will not decrease the performance of the application.
+
+ReadOnly variables Value will be assigned at runtime.??????
+Le mot clé readonly est différent du mot clé const. Un champ const ne peut être initialisé qu'au moment de la déclaration du champ. 
+Un champ readonly peut être assigné plusieurs fois, dans la déclaration de champ ou dans un constructeur. 
+
+
+WCF : Un service WCF est une entité logicielle implémentant un contrat, qui est une interface au sens objet du terme.
+A: adresse. Il s'agit simplement d'une URI qui définit où est joignable le service, cela peut être par exemple une URL http comme l'adresse d'une file d'attente MSMQ
+B: Binding est en fait la méthode, le protocole, utilisé pour communiquer avec le service WCF  9 binding
+BasicHttpBinding, WSHttpBinding, NetTcpBinding, NetMsmqBinding
+C:contrat définit les opérations exposées par le service , c est l interface
+[ServiceContract()]
+public interface IServiceDev
+{
+	[OperationContract()]
+	decimal EuroToUsDollars(decimal amount);
+	[OperationContract()]
+	decimal UsDollarsToEuros(decimal amount);
+}
+Implementer l interface
+public class CurrencyService : IServiceDev
+{
+	public decimal EuroToUsDollars(decimal amount)
+	{
+		return amount * (decimal)1.3812;
+	}
+	public decimal UsDollarsToEuros(decimal amount)
+	{
+		return amount * (decimal)0.724;
+	}
+}
+-Hoster le service wcf Cet hôte peut être n'importe quel type d'application .Net, un service Windows ou même IIS 
+ <service name="DevService.CurrencyService">
+        <endpoint
+            address="http://localhost:8018/CurrencyService"
+            binding="basicHttpBinding"
+            contract="DevInterface.IServiceDev" />
+      </service>
+un endpoint est en fait définit par une adresse, éventuellement un port et un protocole
+Creer un client wcf ca peut etre une appli java ..
+dans ce cas on a un prog .netframework-1 myChannelFactory = new ServiceModel.ChannelFactory<DevInterface.IServiceDev>("ConfigurationHttpCurrency");
+myService = myChannelFactory.CreateChannel();
+this.lblResult.Text = Math.Round(myService.EuroToUsDollars((decimal)this.tbAmount.Text), 2).ToString + " US Dollars";
+
+fichier de config du client
+  <system.serviceModel>
+    <client>
+      <endpoint
+        address="http://localhost:8018/CurrencyService"
+        binding="basicHttpBinding"
+        contract="DevInterface.IServiceDev"
+        name="ConfigurationHttpCurrency" />
+    </client>
+  </system.serviceModel>
+wcftestclient : interface pour tester le service svc
+
+SOAP (Simple Object Access Protocol) is a simple solution for interaction of different applications built in different languages and running on different platforms as it uses HTTP as its transport and XML 
+
+TSQL  Transactions specify an isolation level that defines the degree to which one transaction must be isolated from resource or data modifications made by other transactions. Isolation levels are described in terms of which concurrency side effects, such as dirty reads or phantom reads, are allowed. 
+SET TRANSACTION ISOLATION LEVEL
+    { READ UNCOMMITTED     | READ COMMITTED    | REPEATABLE READ    | SNAPSHOT    | SERIALIZABLE
+    }
+-SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED 
+Specifies that statements can read rows that have been modified by other transactions but not yet committed.which are called dirty reads.	
+-READ COMMITTED   This option is the SQL Server default.
+Specifies that statements cannot read data that has been modified but not committed by other transactions. This prevents dirty reads
+-REPEATABLE READ
+Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction completes.
+-SERIALIZABLE  : Statements cannot read data that has been modified but not yet committed by other transactions., No other transactions can modify data that has been read by the current transaction until the current transaction completes.Other transactions cannot insert new rows with key values that would fall in the range of keys read by any statements in the current transaction until the current transaction completes.
+
+ACID :atomicité, cohérence, isolation et durabilité  ensemble de propriétés qui garantissent qu'une transaction informatique est exécutée de façon fiable.
+atomicité assure qu'une transaction se fait au complet ou pas du tout :
+cohérence assure que chaque transaction amènera le système d'un état valide à un autre état valide.
+Isolation Chaque transaction doit s'exécuter en isolation totale 
+durabilité assure que lorsqu'une transaction a été confirmée, elle demeure enregistrée même à la suite d'une panne d'électricité
+
+Optimisation sql
+Dans le cas d’utilisation d’un CURSEUR, pensez à le fermer et  le désalouer le plus tôt possible.
+L’utilisation des Procédures stockés est recommandée,
+Utilisation de tables variable sont plus performante que les tables temporaires.
+Utiliser With 
+utilser right join ou left join au lieu de faire des sous requete not in (select ***)
+mettre les indexes utiles
+-L’utilisation du SELECT * FROM … est très fortement déconseillé. mettre que les colonnes dont on a besoin
+-Try to avoid joining between two types of columns
+SELECT column_list FROM small_table, large_table WHERE
+smalltable.float_column = large_table.int_column 
+
+-Dans les procédures stockés mettre la commande SET NOCOUNT ON , afin de ne pas faire afficher le nombre de ligne affectés et ainsi alléger la bande passante.
+Try to avoid the use of triggers. Firing a trigger and executing the triggering event is an expensive process.
+
+Revue code stylecope, sonar
+
+
+private readonly HttpClient _httpClient = new HttpClient();
+
+[HttpGet, Route("DotNetCount")]
+public async Task<int> GetDotNetCount()
+{
+    // Suspends GetDotNetCount() to allow the caller (the web server)
+    // to accept another request, rather than blocking on this one.
+    var html = await _httpClient.GetStringAsync("https://dotnetfoundation.org");
+
+    return Regex.Matches(html, @"\.NET").Count;
+}
+
+LINQ 
+Func<Student, bool> isStudentTeenAger = s => s.age > 12 && s.age < 20;
+var teenStudents = from s in studentList
+                   where isStudentTeenAger(s)
+                   select s;
+
+EntityFramework DBFirst
+Eager Loading in Entity Framework:
+Eager loading is the process whereby a query for one type of entity also loads related entities as part of the query  Eager loading is achieved using the Include() method.
+ var stud1 = ctx.Students
+                   .Include("Standard")
+                   .Where(s => s.StudentName == "Bill")
+                   .FirstOrDefault<Student>();
+				   
+ var stud1 = ctx.Students.Include(s => s.Standard)
+                            .Where(s => s.StudentName == "Bill")
+                            .FirstOrDefault<Student>();
+
+Lazy Loading in Entity Framework:the loading of related data,opposite of eager loading
+For example, the Student entity contains the StudentAddress entity. In the lazy loading, the context first loads the Student entity data from the database, then it will load the StudentAddress
+Disable Lazy Loading:
+ public SchoolDBEntities(): base("name=SchoolDBEntities")
+    {
+        this.Configuration.LazyLoadingEnabled = false;
+    }
+Rules for lazy loading:
+context.Configuration.LazyLoadingEnabled should be true.
+Navigation property should be defined as public, virtual. Context will NOT do lazy loading if the property is not defined as virtual.
+-Explicit Loading in Entity Framework:
+Even with lazy loading disabled it is still possible to lazily load related entities, but it must be done with an explicit call. Use the Load() method
+ var student = context.Students
+                        .Where(s => s.FirstName == "Bill")
+                        .FirstOrDefault<Student>();
+    context.Entry(student).Reference(s => s.StudentAddress).Load(); // loads StudentAddress
+    context.Entry(student).Collection(s => s.StudentCourses).Load(); // loads Courses collection 
+
+Methods to Attach Disconnected Entities in EF 6:
+context.Entry(student).State = EntityState.Added;
+
+Student disconnectedStudent = new Student() { StudentName = "New Student" };
+context.Students.Attach(disconnectedStudent);
+http://www.entityframeworktutorial.net/EntityFramework5/attach-disconnected-entity-graph.aspx
+voir projet ariane
+-Saving a Disconnected Entity in EF 6
+context.Entry(student).State = student.StudentId == 0? EntityState.Added : EntityState.Modified;
+    context.SaveChanges();
+Deleting a Disconnected Entity in EF 6:
+ context.Entry(student).State = System.Data.Entity.EntityState.Deleted; 
+    context.SaveChanges();
+
+-The DbEntityEntry enables you to access the entity state, and current and original values of all properties of a given entity
+	DbEntityEntry studentEntry = dbcontext.Entry(entity);
+-Transaction in Entity Framework
+ using (DbContextTransaction transaction = context.Database.BeginTransaction())
+    {
+        try
+        {
+            var standard = context.Standards.Add(new Standard() { StandardName = "1st Grade" });
+
+            context.Students.Add(new Student()
+            {
+                FirstName = "Rama2",
+                StandardId = standard.StandardId
+            });
+            context.SaveChanges();
+
+            context.Courses.Add(new Course() { CourseName = "Computer Science" });
+            context.SaveChanges();
+
+            transaction.Commit();
+        }
+        catch (Exception ex)
+        {
+            transaction.Rollback();
+            Console.WriteLine("Error occurred.");
+        }
+    }
+
+-----------EF Code first-----------------------
+public class SchoolDBContext: DbContext 
+{
+    public SchoolDBContext(): base("SchoolDBConnectionString") 
+    {
+        Database.SetInitializer<SchoolDBContext>(new CreateDatabaseIfNotExists<SchoolDBContext>());
+
+        //Database.SetInitializer<SchoolDBContext>(new DropCreateDatabaseIfModelChanges<SchoolDBContext>());
+        //Database.SetInitializer<SchoolDBContext>(new DropCreateDatabaseAlways<SchoolDBContext>());
+        //Database.SetInitializer<SchoolDBContext>(new SchoolDBInitializer());
+    }
+}
+-Index Attribute:
+[Index]
+public int RegistrationNumber { get; set; }
+
+-creer un champs de type Timestamp
+ [Timestamp]
+    public byte[] RowVersion { get; set; }
+
+-Map Entity to Table:
+protected override void OnModelCreating(DbModelBuilder modelBuilder)
+{
+ modelBuilder.Entity<Student>().ToTable("StudentInfo");	
+ 
+ }
+ 
+we can generate context and entity classes for an existing database, using the code-first approach.
+We can use sp in code-first approach.
+
+You can insert data into your database tables during the database initialization process by using seed methode
+protected override void Seed(SchoolDBContext context)
+
+-Code first 
+enable-migrations
+Add-Migration
+Update-Database  
+
+NOSQL: Not only SQL    CosmosDB
+xUnit.net is a unit testing tool for the .NET Framework. Written by the original inventor of NUnit
+xUnit.Net is an open-source testing framework based on the .NET framework.
+
+Mocking provides the ability to simulate an object. For example, you can test a call to a database without having to actually talk to it. The Moq framework is an open source unit testing framework that works very well with .NET code
+
+
+outils tests performances  jmetter 
+--Silverlight mvvm , databinding entre view et model via viewmodel.cs  RaisePropertyChanged("FirstName"); 
+utilisation des ObservableCollection<>
+BackCommand = new RelayCommand(DoBackCommand);
+l envoi et reception de message send et register
+ Managers.Messenger.Send<ServiceClientInitialiseSearchCriteriaMessage>(null);
+ Managers.Messenger.Register<ThirdPartieManagementMessage>(this, OnThirdPartieManagementMessageReceived);
+ 
+Dependency Injection– Decouples the module dependencies in your application by creating and injecting the object at runtime.
+L’inversion de contrôle répond à un besoin simple : limiter la dépendance d’une couche vis-à-vis de l’implémentation de sa sous-couche. 
+L’intérêt de pouvoir développer et tester séparément les couches, voir changer l’implémentation d’une couche sans que ce soit trop coûteux.
+La solution revient à utiliser dans la couche appelante une interface de la couche N-1 (la couche appelée). 
+Dependency Injection pattern involves 3 types of classes:
+1-Client Class: The client class (dependent class) is a class which depends on the service class
+2-Service Class: The service class (dependency) is a class that provides service to the client class.
+3-Injector Class: The injector class injects service class object into the client class.
+ This way DI pattern separates the responsibility of creating an object of service class out of client class.
+ 
+ IUnityContainer container = new UnityContainer();
+ container.RegisterType<ICar, BMW>();// Map ICar with BMW whenever you need to inject an object of ICar, then create an object of BMW class and inject it through a constructor by default.
+ 
+ //Resolves dependencies and returns Driver object 
+Driver drv = container.Resolve<Driver>(); 
+drv.RunCar();
+In the above example, unity container creates an object of a class Driver using container.Resolve<driver>() method. The Driver class is a dependent on ICar. So, container.Resolve<Driver>() returns an object of Driver class by automatically creating and injecting BMW object in it
+
+web api
+ASP.NET Web API is a framework for building HTTP services that can be accessed from any client including browsers and mobile devices. It is an ideal platform for building RESTful applications on the .NET Framework.
+
+NSubstitute is a great library for mocking objects for Test Driven Development (TDD) in . NET
+Castle Core provides common Castle Project abstractions including logging services. It also features Castle DynamicProxy a lightweight runtime proxy generator, and Castle DictionaryAdapter.
+
+service bus 1-topic (plusieur recepteur , 2-queues un seul recepteur
+MVC
+this.User.IsInRole("Administrator"))
+
+-----------------------
+designe patern strategie omposite tdd reel
+react
+ghafir
+
+
