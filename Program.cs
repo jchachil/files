@@ -298,8 +298,8 @@ namespace ConsoleApplication1
 
         public DateTime DateOfBirth { get; set; }
 
-        //public TimeSpan Age() => DateTime.UtcNow - this.DateOfBirth;
-        //public TimeSpan Age => DateTime.UtcNow - this.DateOfBirth;
+        // public TimeSpan Age() => DateTime.UtcNow - this.DateOfBirth;
+        // public TimeSpan Age => DateTime.UtcNow - this.DateOfBirth;
 
 
         public static bool QualifiesForDiscount(Order order)
@@ -308,9 +308,9 @@ namespace ConsoleApplication1
             var a = order?.Custom?.Name == "john";//OK 
                                                   //var b =  null?? order?.Custom?.Name == "john";//ne compile pas
                                                   ////var c =  order ?? order.Custom ?? order.Custom.Name == "john"; // ne compile pas 
-                                                  //return order != null && order.Custom != null && order.Custom.Name == "john";
+            return order != null && order.Custom != null && order.Custom.Name == "john";
 
-            return true;
+            // return true;
         }
         //bool aa=  QualifiesForDiscount(new Order() { });
         // (null);
@@ -641,6 +641,7 @@ namespace ConsoleApplication1
         static int Calc(int[] array, int n1, int n2)
         {
             int total = 0;
+            var aa = array.ToList().GetRange(n1, n2 - n1 + 1).Sum();  //OK
             array.ToList().GetRange(n1, n2 - n1 + 1).ForEach(x => total += x);
             return total;
         }
@@ -652,14 +653,14 @@ namespace ConsoleApplication1
 
             if (s1.Length > s2.Length)
             {
-                if (s1.Contains(s2))
+                if (s1.EndsWith(s2))
                     return s2;
                 else
                 {
                     string str = s2.Substring(1, s2.Length - 1);
                     while (!string.IsNullOrEmpty(str))
                     {
-                        if (s1.Contains(str))
+                        if (s1.EndsWith(str))
                             return str;
                         else
                             str = str.Substring(1, str.Length - 1);
@@ -709,6 +710,7 @@ namespace ConsoleApplication1
         public static int ClosestToZero1(int[] ints)
         {
             //{ -1, -2, 1, 3 }
+
             if ((ints == null) || (ints != null && ints.Length == 0))
                 return 0;
             else
@@ -882,7 +884,7 @@ namespace ConsoleApplication1
                 return 0;
             }
             else
-            {                        
+            {
 
                 //le nombre max de transactions possible est prices.Count()
                 /*
@@ -898,7 +900,7 @@ namespace ConsoleApplication1
                     for (int day = 1; day < prices.Count(); day++)
                     {
                         maxProfil = Math.Max(maxProfil, profitList[i - 1, day - 1] - prices[day - 1]);
-                        profitList[i, day] = Math.Max(profitList[i, day - 1], prices[day] + maxProfil);                        
+                        profitList[i, day] = Math.Max(profitList[i, day - 1], prices[day] + maxProfil);
                     }
                 }
 
@@ -926,23 +928,806 @@ namespace ConsoleApplication1
                 }
             }
 
-            return profits[k, prices.Length-1 ];
+            return profits[k, prices.Length - 1];
         }
 
 
+        static string encode(int n, string message, string r1, string r2, string r3)
+        {
 
+            //add + n + i to char value
+            char[] tabM = message.ToCharArray();
+            for (int i = 0; i < tabM.Length; i++)
+            {
+                int v = charToValue(tabM[i], "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+                v = v + n + i;
+                while (v > 26)
+                {
+                    v += -26;
+                }
+                tabM[i] = valueToChar(v, "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+            }
 
+            //encode rotor1
+            for (int i = 0; i < tabM.Length; i++)
+            {
+                int v = charToValue(tabM[i], "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+                tabM[i] = valueToChar(v, r1);
+            }
+            //encode rotor2
+            for (int i = 0; i < tabM.Length; i++)
+            {
+                int v = charToValue(tabM[i], "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+                tabM[i] = valueToChar(v, r2);
+            }
+            //encore rotor3
+            for (int i = 0; i < tabM.Length; i++)
+            {
+                int v = charToValue(tabM[i], "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+                tabM[i] = valueToChar(v, r3);
+            }
+            //prepare string return
+            string s = "";
+            foreach (char value in tabM)
+            {
+                s = s + value;
+            }
+            return s;
+        }
+        static int charToValue(char c, string r)
+        {
+            char[] tab = r.ToCharArray();
+            if (c == tab[0])
+            {
+                return 1;
+            }
+            else if (c == tab[1])
+            {
+                return 2;
+            }
+            else if (c == tab[2])
+            {
+                return 3;
+            }
+            else if (c == tab[3])
+            {
+                return 4;
+            }
+            else if (c == tab[4])
+            {
+                return 5;
+            }
+            else if (c == tab[5])
+            {
+                return 6;
+            }
+            else if (c == tab[6])
+            {
+                return 7;
+            }
+            else if (c == tab[7])
+            {
+                return 8;
+            }
+            else if (c == tab[8])
+            {
+                return 9;
+            }
+            else if (c == tab[9])
+            {
+                return 10;
+            }
+            else if (c == tab[10])
+            {
+                return 11;
+            }
+            else if (c == tab[11])
+            {
+                return 12;
+            }
+            else if (c == tab[12])
+            {
+                return 13;
+            }
+            else if (c == tab[13])
+            {
+                return 14;
+            }
+            else if (c == tab[14])
+            {
+                return 15;
+            }
+            else if (c == tab[15])
+            {
+                return 16;
+            }
+            else if (c == tab[16])
+            {
+                return 17;
+            }
+            else if (c == tab[17])
+            {
+                return 18;
+            }
+            else if (c == tab[18])
+            {
+                return 19;
+            }
+            else if (c == tab[19])
+            {
+                return 20;
+            }
+            else if (c == tab[20])
+            {
+                return 21;
+            }
+            else if (c == tab[21])
+            {
+                return 22;
+            }
+            else if (c == tab[22])
+            {
+                return 23;
+            }
+            else if (c == tab[23])
+            {
+                return 24;
+            }
+            else if (c == tab[24])
+            {
+                return 25;
+            }
+            else if (c == tab[25])
+            {
+                return 26;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        static char valueToChar(int v, string r)
+        {
+            char[] tab = r.ToCharArray();
+            switch (v)
+            {
+                case 1:
+                    return tab[0];
+                case 2:
+                    return tab[1];
+                case 3:
+                    return tab[2];
+                case 4:
+                    return tab[3];
+                case 5:
+                    return tab[4];
+                case 6:
+                    return tab[5];
+                case 7:
+                    return tab[6];
+                case 8:
+                    return tab[7];
+                case 9:
+                    return tab[8];
+                case 10:
+                    return tab[9];
+                case 11:
+                    return tab[10];
+                case 12:
+                    return tab[11];
+                case 13:
+                    return tab[12];
+                case 14:
+                    return tab[13];
+                case 15:
+                    return tab[14];
+                case 16:
+                    return tab[15];
+                case 17:
+                    return tab[16];
+                case 18:
+                    return tab[17];
+                case 19:
+                    return tab[18];
+                case 20:
+                    return tab[19];
+                case 21:
+                    return tab[20];
+                case 22:
+                    return tab[21];
+                case 23:
+                    return tab[22];
+                case 24:
+                    return tab[23];
+                case 25:
+                    return tab[24];
+                case 26:
+                    return tab[25];
+                default:
+                    return '?';
+            }
+        }
 
+        //IsHappyNumber() will determine whether a number is happy or not    
+        public static int IsHappyNumber(int num)
+        {
+            int rem = 0, sum = 0;
+            //Calculates the sum of squares of digits    
+            while (num > 0)
+            {
+                rem = num % 10;
+                sum = sum + (rem * rem);
+                num = num / 10;
+            }
+            return sum;
+        }
 
-        static void Main(string[] args)
-        {  //         // Alt+060 (au clavier numérique) pour < ou Alt+062
-           // D:\Jamal\JOB\Test 3 Mustapha\Test akka
-           //https://www.dotnetforall.com/max-profit-with-k-transaction-solution-easy-explanation/
+        static void MainNew(string[] args)
+        {
+            // Alt+060 (au clavier numérique) pour < ou Alt+062
+            // D:\Jamal\JOB\Test 3 Mustapha\Test akka
+            //https://www.dotnetforall.com/max-profit-with-k-transaction-solution-easy-explanation/
 
-            int[] prices = new int[] { 7, 1, 5, 3, 5, 4 };// 1, 2, 3, 4, 8      7, 1, 5, 3, 6, 4 
-             var aa = MaxProfitWithKTransactions(prices, 5);
-            var cc = MaxProfit(prices);
+            // List<string> list = new List<string>() { "test", "C#", ".NET", "Microsoft" };
+            // List<Task> tasks = new List<Task>();
+
+            //var a = Math.Pow(4, 2);
+
             ;
+
+            Console.ReadLine();
+
+        }
+
+        static void TestIsHappyNumber()
+        {
+            // https://dotnettutorials.net/lesson/happy-number-csharp/
+            var aa = IsHappyNumber(19);
+            int Number = 19;
+            int result = Number;
+            while (result != 1 && result != 4)
+            {
+                result = IsHappyNumber(result);
+            }
+            //Happy number always ends with 1    
+            if (result == 1)
+                Console.WriteLine(Number + " is a happy number");
+            //Unhappy number ends in a cycle of repeating numbers which contains 4    
+            else if (result == 4)
+                Console.WriteLine(Number + " is not a happy number");
+        }
+
+        static void EncryptInput(string word)
+        {
+            /*
+             a deviens z
+             z deviens a
+             etc
+             */
+
+            string alphabet = "abcdefghijklmnopqrstuvwxyz";
+            string result = "";
+
+            foreach (char item in word)
+            {
+                int index = alphabet.IndexOf(item);
+                index = 26 - index - 1;
+                var res = alphabet[index];
+                result += res.ToString();
+                //result = result.Concat(res.ToString()).ToString();
+
+            }
+            Console.WriteLine(result);
+            ;
+        }
+
+        static void FindAllSubstringReccurent(string word, List<string> result)
+        { //zzzzzzzzzzzz
+            //List<string> result = new List<string>();
+            //word.All(x => );
+            if (word.Length == 1)
+            {
+                result.Add(word);
+            }
+            else
+            {
+                for (int i = 0; i < word.Length; i++)
+                {
+                    result.Add(word.Substring(0, i + 1));
+                }
+                word = word.Substring(1, word.Length - 1);
+                FindAllSubstringReccurent(word, result);
+                // return result;
+            }
+        }
+
+        static void FindAllSubstring(string word)
+        {
+            List<string> result = new List<string>();
+            FindAllSubstringReccurent(word, result);
+            foreach (var elt in result)
+            {
+                Console.WriteLine(elt);
+            }
+            ;
+        }
+
+        static void DisariumNumber(double number)
+        {
+            //https://dotnettutorials.net/lesson/disarium-number-in-csharp/
+            double sum = 0;
+            string strNumber = number.ToString();
+            for (int i = 0; i < strNumber.Length; i++)
+            {
+                sum += Math.Pow(double.Parse(strNumber[i].ToString()), i + 1);
+            }
+            if (number == sum)
+            {
+                Console.WriteLine(" Disarium Number");
+            }
+            else
+            {
+                Console.WriteLine(" Not Disarium Number");
+
+            }
+        }
+
+        private static int NthFibonacciNumber(int number)
+        {
+            if ((number == 0) || (number == 1))
+            {
+                return number;
+            }
+            else
+            {
+                return (NthFibonacciNumber(number - 1) + NthFibonacciNumber(number - 2));
+            }
+        }
+
+        static void DisplayFibonacciNumber(int number)
+        {
+            //https://dotnettutorials.net/lesson/fibonacci-series-in-csharp/
+
+            int firstNumber = 0, SecondNumber = 1, nextNumber;
+
+
+            //First print first and second number
+            Console.Write(firstNumber + " " + SecondNumber + " ");
+            nextNumber = firstNumber + SecondNumber;
+            //Starts the loop from 2 because 0 and 1 are already printed
+            for (int i = 2; nextNumber < number; i++)
+            {
+                Console.Write(nextNumber + " ");
+                firstNumber = SecondNumber;
+                SecondNumber = nextNumber;
+                nextNumber = firstNumber + SecondNumber;
+            }
+        }
+
+        static bool IsPalindrome(string input)
+        {
+            if (input == string.Join("", input.Reverse()))
+            {
+                Console.WriteLine(" palindrome");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine(" not palindrome");
+                return false;
+            }
+
+
+        }
+
+        
+        static void MinMax()
+        {
+            string[] inputs;
+            inputs = Console.ReadLine().Split(' ');
+            int n = int.Parse(inputs[0]);
+            int q = int.Parse(inputs[1]);
+            inputs = Console.ReadLine().Split(' ');
+            List<string> letterList = new List<string>();
+            Dictionary<string, int> WodrScoreList = new Dictionary<string, int>();
+            for (int i = 0; i < n; i++)
+            {
+                string letter = inputs[i];
+                letterList.Add(letter);
+            }
+            for (int i = 0; i < q; i++)
+            {
+                inputs = Console.ReadLine().Split(' ');
+                string word = inputs[0];
+                int score = int.Parse(inputs[1]);
+                WodrScoreList[word] = score;
+            }
+            var MinValue = WodrScoreList.Aggregate((l, r) => l.Value < r.Value ? l : r).Value;
+            var MaxValue = WodrScoreList.Aggregate((l, r) => r.Value < l.Value ? l : r).Value;
+            var firstChar = WodrScoreList.Aggregate((l, r) => r.Value < l.Value ? l : r).Key.Substring(0, 1);
+
+
+
+            // Write an answer using Console.WriteLine()
+            // To debug: Console.Error.WriteLine("Debug messages...");
+            Console.WriteLine("{0} {1}-{2}", firstChar, MaxValue, MinValue);
+            // //    Console.WriteLine("Key: {0}, Value: {1}", kvp.Key, kvp.Value);
+
+            //Console.WriteLine("choice score1-score2");
+
+        }
+
+        static void TemperatureClosestToZero()
+        {
+            int n = int.Parse(Console.ReadLine()); // the number of temperatures to analyse
+            string[] inputs = Console.ReadLine().Split(' ');
+            int intResult = 0;
+            List<int> ints = new List<int>();
+            if (inputs.Length == 0)
+            {
+                Console.WriteLine("0");
+            }
+            else
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    if (int.TryParse(inputs[i], out intResult))
+                        ints.Add(intResult);// a temperature expressed as an integer ranging from -273 to 5526
+                }
+                var maxNegatifArray = ints.Where(a => a < 0).ToList();
+
+                var minPositifArray = ints.Where(a => a > 0).ToList();
+
+                if (maxNegatifArray.Count() == 0 && minPositifArray.Count() == 0)
+                {
+                    Console.WriteLine("0");
+                }
+                else
+                {
+                    if (maxNegatifArray.Count() > 0 && minPositifArray.Count() > 0)
+                    {
+                        if (minPositifArray.Min() <= Math.Abs(maxNegatifArray.Max()))
+                            Console.WriteLine(minPositifArray.Min().ToString());
+                        else
+                            Console.WriteLine(maxNegatifArray.Max().ToString());
+                    }
+
+                    else if (maxNegatifArray.Count() == 0)
+                    {
+                        Console.WriteLine(minPositifArray.Min().ToString());
+
+                    }
+                    else if (minPositifArray.Count() == 0)
+                    {
+                        Console.WriteLine(maxNegatifArray.Max().ToString());
+                    }
+                }
+            }
+        }
+
+        static void SumEvenDigit()
+        {
+            //long N = long.Parse(Console.ReadLine());
+            long N = 12457896;
+            var str = (N.ToString().ToList().Where(x => x % 2 == 0)).ToList().Sum(a => int.Parse(a.ToString()));
+
+
+
+
+        }
+        static void EncriptedString()
+        {
+            string X = "Hello";
+            string result = "";
+            int cpt = 0;
+            while (result.Length < X.Length)
+            {
+
+
+                result += X.Substring(cpt, 1);
+                if (result.Length < X.Length)
+                    result += X.Substring(X.Length - cpt - 1, 1);
+                cpt++;
+
+
+            }
+            Console.WriteLine(result);
+        }
+
+        public static void SumEvenRange()
+        {
+            int N = 10;
+            var listNum = Enumerable.Range(2, N - 1);
+            int sum = listNum.Where(x => x % 2 == 0).ToList().Sum();
+
+            Console.WriteLine(sum);
+        }
+
+        public static void Clap7()
+        {
+            int N = 17;
+            var listnumber = Enumerable.Range(1, N);
+            var a = listnumber.Where(x => x % 7 == 0).ToList();
+            var b = listnumber.Where(x => x.ToString().Contains("7")).ToList();
+            var c = listnumber.Where(x => x.ToString().Sum(elt => elt - '0') % 7 == 0).ToList();
+            //var c = listnumber.Where(x => x.ToString().Sum(elt => elt ) % 7 == 0).ToList();
+
+            int result = a.Concat(b).Concat(c).Distinct().Count();
+
+            Console.WriteLine(result);
+
+
+        }
+        public static void TallNumber()
+        {
+            int N = 12387;
+            string str = N.ToString();
+            string strsort = string.Join("", str.OrderBy(x => x)).ToString();
+            if (str == strsort)
+                Console.WriteLine("true");
+            else
+                Console.WriteLine("false");
+        }
+
+        static void DisplayOnLED()
+        {
+            int N = 3;
+            string Text = "Hello World";
+            for (int i = 0; i < Text.Length - 2; i++)
+            {
+                Console.WriteLine(Text.Substring(i, N));
+            }
+        }
+
+        static void ShadowKnight()
+        {
+
+            //https://github.com/jasondown/codingame/blob/master/csharp/classic_puzzles_medium/ShadowsOfTheKnight_Episode1.cs  a marche
+            var inputs = Console.ReadLine().Split(' ');
+            int width = int.Parse(inputs[0]);
+            int height = int.Parse(inputs[1]);
+
+            // Max turns
+            var ignored = int.Parse(Console.ReadLine());
+
+            inputs = Console.ReadLine().Split(' ');
+            var x = int.Parse(inputs[0]);
+            var y = int.Parse(inputs[1]);
+
+            var batman = new Batman(x, y, width, height);
+
+            // game loop
+            while (true)
+            {
+                var bombdir = Console.ReadLine();
+                batman.Move(bombdir);
+                Console.WriteLine(batman.Position);
+            }
+
+        }
+        static void ThereIsNoSpoon()
+        {
+            int width = int.Parse(Console.ReadLine()); // the number of cells on the X axis
+            int height = int.Parse(Console.ReadLine()); // the number of cells on the Y axis
+
+            var grid = new char[width, height];
+
+            for (int i = 0; i < height; i++)
+            {
+                string line = Console.ReadLine();
+
+                for (int j = 0; j < width; j++)
+                {
+                    grid[j, i] = line[j];
+                }
+            }
+
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    if (grid[j, i] == '.') continue;
+
+                    int right = j;
+                    while (++right < width && grid[right, i] == '.') ;
+                    string rightNeighbour = right < width && (grid[right, i] != '.') ? $"{right} {i}" : "-1 -1";
+
+                    int down = i;
+                    while (++down < height && grid[j, down] == '.') ;
+                    string downNeighbour = down < height && (grid[j, down] != '.') ? $"{j} {down}" : "-1 -1";
+
+                    Console.WriteLine($"{j} {i} {rightNeighbour} {downNeighbour}");
+                }
+            }
+
+
+        }
+
+        static double Celsius(double f)
+        {
+            return 5.0 / 9.0 * (f - 32);
+        }
+
+
+        static void DuplicateWord()
+        {
+            int N = int.Parse(Console.ReadLine());
+            string[] inputs = Console.ReadLine().Split(' ');
+           
+            var result = inputs.ToList().GroupBy(n => n).Count(n => n.Count() >= 2);
+            Console.WriteLine(result);
+        }
+
+        static void Syracuse()
+        {
+            /*
+             The Syracuse (or Collatz) suite is defined as follows: given an initial integer greater than 0, we apply the following operations while the integer is different that 1: -it is divided by 2 when even, -it is multiplied by 3 and raised by 1 when odd. Your program must display the Syracuse suite of the number N and stop when the value is reached. INPUT: Line 1: An integer N that starts the suite. OUTPUT: Line 1: The values of the Syracuse suite, separated by a space.
+            EXAMPLE: Input 5 
+            Output 5 16 8 4 2 1
+             */
+            int N = int.Parse(Console.ReadLine());
+
+            while (N != 1)
+            {
+                Console.Write(N + " ");
+                if (N % 2 == 0) // pair
+                    N /= 2;
+                else            // impair
+                    N = 3 * N + 1;
+            }
+            Console.WriteLine(1); // afficher le dernier 1
+        }
+
+        static void CalculateAntMvt()
+        {
+            /*
+             An ant on the floor can move 1 unit Left, Right, Forward, or Backward on each step. Left, Right, Forward, and Backward are respectively denoted by L, R, F, and B. These directions are from the point of view of a fixed aerial observer. You are given the steps of the ant. Calculate the Euclidean distance between the starting position and the final position of the ant. Example input: FFLR FRRRR The ant moves three times forward and never backward, resulting in three vertical steps. It also moves once to the left and five times to the right, effectively resulting in four horizontal steps.
+            The ant traveled:  racine carre de (3*3 + 4*4)  math.sqrt(9 + 16) = 5
+             */
+            int n = int.Parse(Console.ReadLine());
+            string steps = Console.ReadLine().Replace(" ", "");
+
+            int x = 0; // horizontal (droite-gauche)
+            int y = 0; // vertical (avant-arrière)
+
+            foreach (char step in steps)
+            {
+                switch (step)
+                {
+                    case 'L': x--; break;
+                    case 'R': x++; break;
+                    case 'F': y++; break;
+                    case 'B': y--; break;
+                }
+            }
+
+            int dist = (int)Math.Sqrt(x * x + y * y);
+            Console.WriteLine(dist);
+        }
+
+        static void CompareCelsiusFahrenheitTemperature()
+        {
+            int n = int.Parse(Console.ReadLine());
+            for (int i = 0; i < n; i++)
+            {
+                string[] inputs = Console.ReadLine().Split(' ');
+                int b = int.Parse(inputs[0]);
+                int t = int.Parse(inputs[1]);
+
+                if (Celsius(b) > t)
+                {
+                    Console.WriteLine("Higher");
+                }
+                else if (Celsius(b) < t)
+                {
+                    Console.WriteLine("Lower");
+
+                }
+                else
+                    Console.WriteLine("Same");
+
+            }
+
+        }
+
+        static void ProgressBar()
+        {
+            /*
+             You have been assigned the task of creating a text-based loading bar. The loading bar must be completely customizable, accepting arguments for its length L. progress PROG, the "full" symbol A, and the "empty" symbol B to represent its progress. Example A="X' B L=10 PROG = .5 Then the output should be: XXXXX00000 The loading bar should be rounded upwards if necessary. For example, .25 progress with 10 characters should have 3 A symbols followed by 7 B symbols. Input Line 1: A String A for the symbol to signify the bar's progress. Line 2: A String B for the symbol to signify how much of the bar is left. Line 3: An integer for how many symbols the bar should use. Line 4: A float PROG representing the progress of the bar, round upwards if necessary. represents the number of A and B there should be in the bar. Both symbols may be longer than 1 character. Output The loading bar, as described above. Constraints 5 ≤ L < 200 0 < PROG < 1 0 < Length of A and B < 10 Example Input X O 10 .50 Output XXXXXOOOOO
+             */
+            string A = Console.ReadLine().Trim();
+            string B = Console.ReadLine().Trim();
+            int L = int.Parse(Console.ReadLine());
+            double PROG = double.Parse(Console.ReadLine());
+
+            int fullCount = (int)Math.Ceiling(L * PROG);
+            int emptyCount = L - fullCount;
+
+            string bar = new string(' ', 0); // juste pour init
+            for (int i = 0; i < fullCount; i++) bar += A;
+            for (int i = 0; i < emptyCount; i++) bar += B;
+
+            Console.WriteLine(bar);
+        }
+        static void Main(string[] args)
+        {
+            //https://www.codingame.com/ide/puzzle/dwarfs-standing-on-the-shoulders-of-giants-codesize
+            //https://steemit.com/fr/@levieuxours/chevaux-de-course-or-codingame
+            //https://dotnettutorials.net/lesson/find-sum-of-even-numbers-from-1-to-n-in-csharp/
+            //https://github.com/SlicedPotatoes/CodinGame/blob/main/Puzzles/Easy/EncryptionDecryption%20of%20Enigma%20Machine/CSharp.cs
+            //https://www.codingame.com/take-the-test/C%23
+            //https://github.com/SlicedPotatoes/CodinGame?tab=readme-ov-file
+            
+            
+            // List<string> list = new List<string>() { "test", "C#", ".NET", "Microsoft" };
+            // List<Task> tasks = new List<Task>();
+
+            //string ee = "0125";
+            //var a = ee.ToList();
+            //;
+            // ThereIsNoSpoon();
+
+
+            //ShadowKnight();
+            //DisplayOnLED();
+            //TallNumber();
+            //Clap7();
+            //SumEvenRange();
+
+            //EncriptedString();
+
+            //MinMax();
+            //TemperatureClosestToZero();
+
+            //IsPalindrome("123215");
+            //DisplayFibonacciNumber(50);
+            //DisariumNumber(245);
+            //FindAllSubstring("ABC"); //A AB ABC B BC C
+            //TestIsHappyNumber();
+            //EncryptInput("zadre");
+
+            //https://dotnettutorials.net/lesson/find-sum-of-even-numbers-from-1-to-n-in-csharp/
+
+            //         // Alt+060 (au clavier numérique) pour < ou Alt+062
+            // D:\Jamal\JOB\Test 3 Mustapha\Test akka
+            //https://www.dotnetforall.com/max-profit-with-k-transaction-solution-easy-explanation/
+
+
+
+
+
+
+            // List<string> list = new List<string>() { "test", "C#", ".NET", "Microsoft" };
+            // List<Task> tasks = new List<Task>();
+            // foreach (string item in list)
+            // {
+            //     Task t = new Task(() => Console.WriteLine(item));
+            // }
+            // Task.WaitAll(tasks.ToArray());
+            // ;
+
+            //dynamic expando = new System.Dynamic.ExpandoObject();
+            //expando.Constant = 10;
+            //expando.AddOne = "AddOne";
+            //expando.AddOne = (Func<int, int>)(x => x + 1);
+            //Console.Write(expando.AddOne(expando.Constant));
+            //;
+
+            //var t = Tuple.Create(1, 2, 3, 4, 5, 6, 7, 8);
+            //Console.WriteLine(t.Item3);
+            //Console.WriteLine(t.Item8);
+
+            //Console.WriteLine(String.IsInterned("Welcome"));  //Welcome
+
+            //dynamic x = "23";
+            //dynamic y = "10";
+            //Console.WriteLine(x - y);
+
+
+            //int[] prices = new int[] { 7, 1, 5, 3, 5, 4 };// 1, 2, 3, 4, 8      7, 1, 5, 3, 6, 4 
+            // var aa = MaxProfitWithKTransactions(prices, 5);
+            //var cc = MaxProfit(prices);
+            //;
 
 
             //var ninja = new Guerrier("Ninja");
@@ -959,17 +1744,22 @@ namespace ConsoleApplication1
 
 
 
-            string str = "fgrtr58,;";
-            var charcharacters = str.Where(x => Char.IsLetter(x));
-            //reverse the case
-            string.Concat(str.Select(x => char.IsUpper(x) ? char.ToLower(x) : char.ToUpper(x)));
+            //string str = "fgrtr58,;";
+            //var charcharacters = str.Where(x => Char.IsLetter(x));
+            ////reverse the case
+            //string.Concat(str.Select(x => char.IsUpper(x) ? char.ToLower(x) : char.ToUpper(x)));
 
 
+            //var ret = Check("W12{}{}L{}");
+            //;
             //var ret = Check("(()[])");
+            //Console.WriteLine(ret.ToString());
+            //;
+
             //ret = Check("([)]");
             //;
             //var test =   testAnagram("aze", "aez");
-            ;
+
 
             //var aa = CalculePI(100000000);
 
@@ -1050,7 +1840,7 @@ namespace ConsoleApplication1
             //var dd = 01 | 11; //11
 
             //var result = Math.Round(5.5) + Math.Round(-6.5);//0
-
+            //;
             //Cdiscount-18
 
             // ce block affiche ACD
@@ -1097,7 +1887,7 @@ namespace ConsoleApplication1
             //var ss = hashset.Count; //2
 
             //TestThread();
-            ;
+            //;
             ////nbr premier 
             //var res = GetNbrPremiers(100);
             //foreach (var item in res)
@@ -1318,7 +2108,7 @@ namespace ConsoleApplication1
             //;
 
 
-            // Test t1 = new Test();
+            //Test t1 = new Test();
 
             //TestMethode();
 
@@ -1328,7 +2118,7 @@ namespace ConsoleApplication1
             //if (query.FirstOrDefault() != null)
             //{
             //    //var t = query.FirstOrDefault();
-            //    var s =  query.ToList();
+            //    var s = query.ToList();
             //}
 
 
@@ -1371,7 +2161,7 @@ namespace ConsoleApplication1
             //{
             //    Console.WriteLine(i.ToString());
             //}
-
+            //;
 
 
 
@@ -1391,6 +2181,7 @@ namespace ConsoleApplication1
 
             //DerivedSimple s = new DerivedSimple();
             //s.fun();
+            //;
 
             //object o1 = 1;
             //object o2 = 1;
@@ -1425,7 +2216,7 @@ namespace ConsoleApplication1
 
             //FirstName = "abc";
             //LastName = "def";
-            //FormattableString str = $"Average grade is {FullName}";
+            //string str = $"Average grade is {FullName}";
             //var gradeStr = str.ToString(new System.Globalization.CultureInfo("de-DE"));
             //Console.WriteLine(gradeStr);
 
@@ -1475,7 +2266,7 @@ namespace ConsoleApplication1
 
 
             //Order order = new Order { Custom = new Custom { Name = "jamal" }, Price = 10 };
-            //var ret  = QualifiesForDiscount(order);
+            //var ret = QualifiesForDiscount(order);
             //Console.WriteLine(ret);
 
             //formattablestring https://stackoverflow.com/questions/35425899/difference-between-string-formattablestring-iformattable
@@ -1498,7 +2289,7 @@ namespace ConsoleApplication1
             //ncAgreggation = ncAdd;
             //ncAgreggation += ncMult;
             //Console.WriteLine($" value of num: {ncAgreggation(5)}");
-            //value of num: 75
+            //// value of num: 75
 
 
             //Stack<int> stack = new Stack<int>();
@@ -1507,7 +2298,7 @@ namespace ConsoleApplication1
             //stack.Push(3);
             //stack.Push(StackLine);
             //Console.WriteLine($"1 :{stack.Pop()} 2 :{stack.Peek()} 3:{stack.Pop()}"); // 1:4 2:3 3:3
-            //;
+            ////;
 
             //Generic<Person> instance = new Generic<Person>();// pesron must with parameterless constructor
 
@@ -1525,7 +2316,7 @@ namespace ConsoleApplication1
             //s = "n";
             //query = query.Where(c => c.Contains(s));
             //Console.WriteLine(query.Count());
-
+            //;
             //var a = Power(2, 3);   // enumerable de [2 ,4 ,8]
 
 
@@ -1549,7 +2340,7 @@ namespace ConsoleApplication1
             //        return x > 2;
 
             //    })
-            //    ;
+            ;
             //Console.WriteLine(counter);//10
 
             //int[] values = { 1, 2, 3, 4 };
@@ -1567,13 +2358,13 @@ namespace ConsoleApplication1
             //Console.WriteLine(commaSeperatedString);//affiche  One, Two, Three, Four, Five
 
 
-            IList<Student> studentList = new List<Student>() {
-                    new Student() { StudentID = 1, StudentName = "John", StandardID =1 },
-                    new Student() { StudentID = 2, StudentName = "Moin", StandardID =1 },
-                    new Student() { StudentID = 3, StudentName = "Bill", StandardID =2 },
-                    new Student() { StudentID = 4, StudentName = "Ram" , StandardID =2 },
-                    new Student() { StudentID = 5, StudentName = "Ron"  }
-                };
+            //IList<Student> studentList = new List<Student>() {
+            //        new Student() { StudentID = 1, StudentName = "John", StandardID =1 },
+            //        new Student() { StudentID = 2, StudentName = "Moin", StandardID =1 },
+            //        new Student() { StudentID = 3, StudentName = "Bill", StandardID =2 },
+            //        new Student() { StudentID = 4, StudentName = "Ram" , StandardID =2 },
+            //        new Student() { StudentID = 5, StudentName = "Ron"  }
+            //    };
             //var avg = studentList.Average(x=>x.StudentID);
 
             //string commaSeparatedStudentNames = studentList.Aggregate<Student, string>(
@@ -1705,6 +2496,12 @@ namespace ConsoleApplication1
 
             foreach (char c in str)
             {
+                // si des caravreter different des bracket continuer pas d erreur 
+                if (c != '[' && c != ']' && c != '(' && c != ')' && c != '}' && c != '{')
+                {
+                    continue;
+                }
+
                 if (c == '[' || c == '{' || c == '(')
                 {
                     brackets.Push(c);
@@ -2049,6 +2846,90 @@ namespace ConsoleApplication1
 
         }
 
+    }
+
+    class Batman
+    {
+        private int XMin { get; set; }
+        private int XMax { get; set; }
+        private int YMin { get; set; }
+        private int YMax { get; set; }
+        private int X { get; set; }
+        private int Y { get; set; }
+
+        public string Position => $"{X} {Y}";
+
+        public Batman(int x, int y, int width, int height)
+        {
+            X = x;
+            Y = y;
+            XMin = 0;
+            XMax = width - 1;
+            YMin = 0;
+            YMax = height - 1;
+        }
+
+        public void Move(string bombDir)
+        {
+            switch (bombDir)
+            {
+                case "U":
+                    MoveUp();
+                    break;
+
+                case "UR":
+                    MoveUp(); MoveRight();
+                    break;
+
+                case "R":
+                    MoveRight();
+                    break;
+
+                case "DR":
+                    MoveDown(); MoveRight();
+                    break;
+
+                case "D":
+                    MoveDown();
+                    break;
+
+                case "DL":
+                    MoveDown(); MoveLeft();
+                    break;
+
+                case "L":
+                    MoveLeft();
+                    break;
+
+                case "UL":
+                    MoveUp(); MoveLeft();
+                    break;
+            }
+        }
+
+        private void MoveUp()
+        {
+            YMax = Y;
+            Y -= (int)Math.Ceiling((double)(Y - YMin) / 2);
+        }
+
+        private void MoveRight()
+        {
+            XMin = X;
+            X += (int)Math.Ceiling((double)(XMax - X) / 2);
+        }
+
+        private void MoveDown()
+        {
+            YMin = Y;
+            Y += (int)Math.Ceiling((double)(YMax - Y) / 2);
+        }
+
+        private void MoveLeft()
+        {
+            XMax = X;
+            X -= (int)Math.Ceiling((double)(X - XMin) / 2);
+        }
     }
 
 
