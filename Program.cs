@@ -1649,6 +1649,13 @@ namespace ConsoleApplication1
 
             Console.WriteLine(bar);
         }
+
+        public async Task<string> LireFichierAsync(string chemin)
+        {
+             StreamReader reader = new StreamReader(chemin);
+            return await reader.ReadToEndAsync();
+        }
+
         static void Main(string[] args)
         {
             //https://www.codingame.com/ide/puzzle/dwarfs-standing-on-the-shoulders-of-giants-codesize
@@ -1657,8 +1664,15 @@ namespace ConsoleApplication1
             //https://github.com/SlicedPotatoes/CodinGame/blob/main/Puzzles/Easy/EncryptionDecryption%20of%20Enigma%20Machine/CSharp.cs
             //https://www.codingame.com/take-the-test/C%23
             //https://github.com/SlicedPotatoes/CodinGame?tab=readme-ov-file
-            
-            
+
+            //Console.WriteLine("Début");
+
+            ////string contenu = await LireFichierAsync(@"d:\jamal\College catholique.txt");
+
+            //Console.WriteLine("Fichier lu !");
+            //Console.WriteLine(contenu);
+
+
             // List<string> list = new List<string>() { "test", "C#", ".NET", "Microsoft" };
             // List<Task> tasks = new List<Task>();
 
